@@ -26,76 +26,112 @@ except ImportError:  # pragma: no cover
         sys.exit(1)
 
 
+# Note that we deliberately ensure all module names are private.
+# The only public API is whatever we expose here.
+#
+# As a style guide we recommend always using a single top-level import.
+# 
+# ```
+# import httpx
+#
+# client = httpx.Client()
+# ```
+
 __all__ = [
+    # Implemented in `__version__.py`...
     "__description__",
     "__title__",
     "__version__",
-    "ASGITransport",
-    "AsyncBaseTransport",
-    "AsyncByteStream",
-    "AsyncClient",
-    "AsyncHTTPTransport",
+
+    # Implemented in `_api.py`...
+    "delete",
+    "get",
+    "head",
+    "options",
+    "patch",
+    "post",
+    "put",
+    "request",
+    "stream",
+
+    # Implemented in `_auth.py`...
     "Auth",
-    "BaseTransport",
     "BasicAuth",
-    "ByteStream",
+    "DigestAuth",
+    "NetRCAuth",
+
+    # Implemented in `_client.py`...
+    "USE_CLIENT_DEFAULT",
+    "AsyncClient",
     "Client",
+
+    # Implemented in `_config.py`...
+    "Limits",
+    "Proxy",
+    "Timeout",
+    "create_ssl_context",
+
+    # Implemented in `_content.py`...
+    "ByteStream",
+
+    # Implemented in `_exceptions.py`...
     "CloseError",
-    "codes",
     "ConnectError",
     "ConnectTimeout",
     "CookieConflict",
-    "Cookies",
-    "create_ssl_context",
     "DecodingError",
-    "delete",
-    "DigestAuth",
-    "get",
-    "head",
-    "Headers",
     "HTTPError",
     "HTTPStatusError",
-    "HTTPTransport",
     "InvalidURL",
-    "Limits",
     "LocalProtocolError",
-    "main",
-    "MockTransport",
-    "NetRCAuth",
     "NetworkError",
-    "options",
-    "patch",
     "PoolTimeout",
-    "post",
     "ProtocolError",
-    "Proxy",
     "ProxyError",
-    "put",
-    "QueryParams",
     "ReadError",
     "ReadTimeout",
     "RemoteProtocolError",
-    "request",
-    "Request",
     "RequestError",
     "RequestNotRead",
-    "Response",
     "ResponseNotRead",
-    "stream",
     "StreamClosed",
     "StreamConsumed",
     "StreamError",
-    "SyncByteStream",
-    "Timeout",
     "TimeoutException",
     "TooManyRedirects",
     "TransportError",
     "UnsupportedProtocol",
-    "URL",
-    "USE_CLIENT_DEFAULT",
     "WriteError",
     "WriteTimeout",
+
+    # Implemented in `_main.py`...
+    "main",
+
+    # Implemented in `_models.py`...
+    "Cookies",
+    "Headers",
+    "Request",
+    "Response",
+
+    # Implemented in `_status_codes.py`...
+    "codes",
+
+    # Implemented in `_transports/*.py`...
+    "ASGITransport",
+    "AsyncBaseTransport",
+    "AsyncHTTPTransport",
+    "BaseTransport",
+    "HTTPTransport",
+    "MockTransport",
     "WSGITransport",
+
+    # Implemented in `_types.py`...
+    "AsyncByteStream",
+    "SyncByteStream",
+
+    # Implemented in `_urls.py`...
+    "QueryParams",
+    "URL",
 ]
 
 
